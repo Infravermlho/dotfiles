@@ -1,0 +1,128 @@
+{
+  "layer": "top",
+  "height": 32,
+  "modules-left": [
+    "idle_inhibitor",
+    "custom/separator",
+    "hyprland/workspaces",
+    "custom/separator",
+    "battery",
+    "cpu",
+    "memory"
+  ],
+  "modules-center": [
+    "hyprland/window",
+    "custom/separator",
+    "clock"
+  ],
+  "modules-right": [
+    "custom/spotify",
+    "network",
+    "backlight",
+    "wireplumber",
+    "tray"
+  ],
+  "custom/spotify": {
+    "format": "  {}",
+    "max-length": 200,
+    "exec-if": "pgrep spotify",
+    "exec-on-event": false,
+    "interval": 5,
+    "return-type": "json",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "playerctl -p spotify previous",
+    "on-scroll-down": "playerctl -p spotify next",
+    "smooth-scrolling-threshold": 10,
+    "tooltip": true,
+    "escape": true,
+    "exec": "~/.config/waybar/scripts/player.sh"
+  },
+  "wireplumber": {
+    "scroll-step": 0.15,
+    "format": "{icon} {volume}%",
+    "format-muted": "󰕿 0%",
+    "on-click": "pavucontrol",
+    "format-icons": {
+      "default": [
+        "<span color=\"#83a598\"></span>",
+        "<span color=\"#83a598\"></span>",
+        "<span color=\"#83a598\"></span>"
+      ]
+    }
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "format": "{name}",
+    "persistent-workspaces": {
+      "*": 3
+    }
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+  "clock": {
+    "format": "{:%A %d/%m %H:%M}"
+  },
+  "cpu": {
+    "interval": 15,
+    "format": "<span color=\"#fe8019\"></span>  {}%",
+    "max-length": 10
+  },
+  "memory": {
+    "interval": 30,
+    "format": "<span color=\"#83a598\"></span>  {}%",
+    "max-length": 10
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "<span color=\"#928374\"></span>"
+    }
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}  {percent}%",
+    "tooltip": false,
+    "format-icons": [
+      "<span color=\"#d3869b\"></span>",
+      "<span color=\"#d3869b\"></span>"
+    ]
+  },
+  "network": {
+    "interface": "wlp1s0",
+    "format": "{ifname}",
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "󰊗  {ipaddr}/{cidr}",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "󰊗  {ifname} via {gwaddr}",
+    "tooltip-format-wifi": "  {essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "  {ifname}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+  },
+  "battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+      "warning": 40,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": [
+      "<span color=\"#d65d0e\"> </span>",
+      "<span color=\"#fabd2f\"> </span>",
+      "<span color=\"#fabd2f\"> </span>",
+      "<span color=\"#b8bb26\"> </span>",
+      "<span color=\"#b8bb26\"> </span>"
+    ],
+    "format-charging": "<span color=\"#e0af68\">󱐌</span> {capacity}%"
+  },
+  "custom/separator": {
+    "format": "|",
+    "tooltip": false
+  },
+}

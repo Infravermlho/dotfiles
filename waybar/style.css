@@ -1,0 +1,100 @@
+@import "gruvbox.css";
+
+* {
+  font-family: Mononoki Nerd Font;
+  font-size: 13px;
+  font-weight: 700;
+  min-height: 0px;
+}
+
+/* Set background color of main waybar window */
+window#waybar {
+  background: rgba(40, 40, 40, 0.9);
+}
+
+/* Set background color and text color of tooltips */
+tooltip {
+  background: @bg;
+}
+
+tooltip label {
+  color: @fg;
+}
+
+/* Set workspace text color and padding */
+#workspaces button {
+  color: @gray;
+  padding: 2px;
+}
+
+/* #workspaces {
+  padding: 0 5px;
+} */
+
+#workspaces button.active {
+  color: @red;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+  background: transparent;
+}
+
+#clock,
+#cpu,
+#custom-spotify,
+#language,
+#window,
+#memory,
+#temperature,
+#wireplumber,
+#battery,
+#idle_inhibitor,
+#backlight,
+#network,
+#tray {
+  padding: 0 10px;
+  color: #fbf1c7;
+}
+
+#tray {
+  padding: 0 15px 0 0;
+}
+
+/* @keyframes blink {
+  to {
+    background-color: @mantle;
+    color: @text;
+  }
+} */
+
+#custom-spotify {
+  border-radius: 5px;
+  background: #8ec07c;
+  color: #282828;
+  padding: 0 5px;
+  margin: 5px 0;
+}
+
+#custom-separator {
+  padding: 0 10px;
+  color: @bg3;
+}
+
+/* #memory {
+  color: @green;
+} */
+
+/* #custom-clipboard {
+  font-size: 20.5px;
+  padding: 0 15px 0 10px;
+  color: @blue;
+} */
+
+/* #cpu {
+  color: @teal;
+} */
+
+/* #temperature {
+  color: @yellow;
+} */

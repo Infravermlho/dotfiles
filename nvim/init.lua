@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 local plugins = {
-	"folke/which-key.nvim",
+	{ "folke/which-key.nvim" },
 	{ "folke/neoconf.nvim", cmd = "Neoconf" },
 	"folke/neodev.nvim",
 	{
